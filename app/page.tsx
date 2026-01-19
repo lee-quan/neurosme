@@ -135,143 +135,249 @@ export default function Home() {
             {selectedEntrepreneur === "overview" ? (
               /* OVERVIEW DASHBOARD */
               <>
-                {/* Overview Header */}
-                <div className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 border border-gray-700/50 rounded-xl p-6 backdrop-blur-sm">
-                  <div className="flex items-start justify-between">
-                    <div>
-                      <h2 className="text-3xl font-bold text-white mb-2">Portfolio Overview</h2>
-                      <p className="text-sm text-gray-400">Real-time monitoring across all entrepreneurs</p>
+                {/* Page Title - Smaller now */}
+                <div className="mb-6">
+                  <h2 className="text-2xl font-bold text-white mb-1">Portfolio Impact Dashboard</h2>
+                  <p className="text-sm text-gray-400">Real-time proof of impact across all entrepreneurs</p>
+                </div>
+
+                {/* TOP 5 KEY INDICATORS - MASSIVE HERO SECTION */}
+                <div className="mb-8">
+                  <div className="flex items-center justify-between mb-4">
+                    <div className="flex items-center gap-3">
+                      <div className="w-1 h-8 bg-gradient-to-b from-indigo-500 to-purple-600 rounded-full"></div>
+                      <h3 className="text-lg font-bold text-white tracking-wide">TOP 5 BOARD-LEVEL SIGNALS</h3>
                     </div>
-                    <button className="bg-indigo-600 hover:bg-indigo-500 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors">
-                      Export Report
-                    </button>
+                    <span className="text-xs text-indigo-400 font-semibold px-3 py-1.5 bg-indigo-600/20 rounded-lg border border-indigo-500/30">
+                      PRIMARY IMPACT METRICS
+                    </span>
                   </div>
-                </div>
 
-                {/* Portfolio Stats */}
-                <div className="grid grid-cols-4 gap-4">
-                  <div className="bg-gradient-to-br from-emerald-900/20 to-emerald-800/10 border border-emerald-700/30 rounded-xl p-4">
-                    <div className="text-xs font-semibold text-emerald-400 mb-2">LOW RISK</div>
-                    <div className="text-3xl font-bold text-white mb-1">3</div>
-                    <div className="text-xs text-gray-400">Performing well</div>
-                  </div>
-                  <div className="bg-gradient-to-br from-amber-900/20 to-amber-800/10 border border-amber-700/30 rounded-xl p-4">
-                    <div className="text-xs font-semibold text-amber-400 mb-2">MEDIUM RISK</div>
-                    <div className="text-3xl font-bold text-white mb-1">3</div>
-                    <div className="text-xs text-gray-400">Monitor closely</div>
-                  </div>
-                  <div className="bg-gradient-to-br from-rose-900/20 to-rose-800/10 border border-rose-700/30 rounded-xl p-4">
-                    <div className="text-xs font-semibold text-rose-400 mb-2">HIGH RISK</div>
-                    <div className="text-3xl font-bold text-white mb-1">2</div>
-                    <div className="text-xs text-gray-400">Needs intervention</div>
-                  </div>
-                  <div className="bg-gradient-to-br from-indigo-900/20 to-indigo-800/10 border border-indigo-700/30 rounded-xl p-4">
-                    <div className="text-xs font-semibold text-indigo-400 mb-2">AVG BURNOUT</div>
-                    <div className="text-3xl font-bold text-white mb-1">55.5</div>
-                    <div className="text-xs text-gray-400">Portfolio average</div>
-                  </div>
-                </div>
-
-                {/* Entrepreneur Cards Grid */}
-                <div className="grid grid-cols-2 gap-4">
-                  {entrepreneurs.map((entrepreneur, idx) => (
-                    <div 
-                      key={idx}
-                      onClick={() => setSelectedEntrepreneur(entrepreneur.name)}
-                      className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 border border-gray-700/50 rounded-xl p-5 backdrop-blur-sm hover:border-indigo-500/50 transition-all cursor-pointer group"
-                    >
+                  {/* First Row - 3 Cards */}
+                  <div className="grid grid-cols-3 gap-5 mb-5">
+                    {/* 1. Adoption Rate */}
+                    <div className="bg-gradient-to-br from-emerald-900/40 via-emerald-800/20 to-gray-900/40 border-2 border-emerald-500/50 rounded-2xl p-8 backdrop-blur-sm shadow-2xl shadow-emerald-900/30 hover:shadow-emerald-900/50 transition-all">
                       <div className="flex items-start justify-between mb-4">
-                        <div className="flex items-start gap-3">
-                          <div className="w-12 h-12 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-lg flex items-center justify-center text-white text-lg font-bold flex-shrink-0">
-                            {entrepreneur.name.split(' ').map(n => n[0]).join('')}
-                          </div>
-                          <div>
-                            <h3 className="text-lg font-semibold text-white group-hover:text-indigo-400 transition-colors">{entrepreneur.name}</h3>
-                            <p className="text-sm text-gray-400">{entrepreneur.project}</p>
-                            <div className="flex items-center gap-2 mt-1">
-                              <span className="text-xs text-gray-500">Month {entrepreneur.month}/{entrepreneur.total}</span>
-                              <div className="flex-1 bg-gray-700/30 rounded-full h-1 w-20">
-                                <div 
-                                  className="bg-indigo-500 h-1 rounded-full" 
-                                  style={{ width: `${(entrepreneur.month / entrepreneur.total) * 100}%` }}
-                                ></div>
-                              </div>
-                            </div>
-                          </div>
+                        <div className="w-14 h-14 bg-emerald-500/20 rounded-xl flex items-center justify-center border border-emerald-500/30">
+                          <svg className="w-8 h-8 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                          </svg>
                         </div>
-                        <div className={`px-2 py-1 rounded text-xs font-bold ${
-                          entrepreneur.risk === "high" ? "bg-rose-500/20 text-rose-400 border border-rose-500/30" :
-                          entrepreneur.risk === "medium" ? "bg-amber-500/20 text-amber-400 border border-amber-500/30" :
-                          "bg-emerald-500/20 text-emerald-400 border border-emerald-500/30"
-                        }`}>
-                          {entrepreneur.risk.toUpperCase()}
+                        <div className="flex items-center gap-2 bg-emerald-500/20 px-3 py-1.5 rounded-lg">
+                          <span className="text-emerald-400 text-xl font-bold">↑</span>
+                          <span className="text-emerald-400 text-sm font-bold">+24%</span>
                         </div>
                       </div>
+                      <div className="mb-3">
+                        <div className="text-sm font-bold text-emerald-400 tracking-wider mb-2">ADOPTION RATE</div>
+                        <div className="text-6xl font-black text-white mb-2">87<span className="text-3xl text-gray-400">%</span></div>
+                      </div>
+                      <div className="pt-4 border-t border-emerald-500/20">
+                        <div className="text-xs text-emerald-300/80 font-medium mb-2">WHY IT MATTERS</div>
+                        <p className="text-sm text-gray-300 leading-relaxed">Shows real behavior change, not just awareness.</p>
+                      </div>
+                      <div className="mt-4 pt-4 border-t border-emerald-500/10">
+                        <span className="text-xs text-emerald-400/70 font-semibold tracking-wide">BOARD-LEVEL SIGNAL</span>
+                      </div>
+                    </div>
 
-                      {/* Quick Metrics */}
-                      <div className="grid grid-cols-3 gap-3 mb-3">
-                        <div>
-                          <div className="text-xs text-gray-400 mb-1">Revenue</div>
-                          <div className="text-lg font-bold text-white">${entrepreneur.revenue}M</div>
+                    {/* 2. Productivity Uplift */}
+                    <div className="bg-gradient-to-br from-blue-900/40 via-blue-800/20 to-gray-900/40 border-2 border-blue-500/50 rounded-2xl p-8 backdrop-blur-sm shadow-2xl shadow-blue-900/30 hover:shadow-blue-900/50 transition-all">
+                      <div className="flex items-start justify-between mb-4">
+                        <div className="w-14 h-14 bg-blue-500/20 rounded-xl flex items-center justify-center border border-blue-500/30">
+                          <svg className="w-8 h-8 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+                          </svg>
                         </div>
-                        <div>
-                          <div className="text-xs text-gray-400 mb-1">Runway</div>
-                          <div className="text-lg font-bold text-white">{entrepreneur.runway}mo</div>
+                        <div className="flex items-center gap-2 bg-blue-500/20 px-3 py-1.5 rounded-lg">
+                          <span className="text-blue-400 text-xl font-bold">↑</span>
+                          <span className="text-blue-400 text-sm font-bold">+31%</span>
                         </div>
-                        <div>
-                          <div className="text-xs text-gray-400 mb-1">Burnout</div>
-                          <div className={`text-lg font-bold ${
+                      </div>
+                      <div className="mb-3">
+                        <div className="text-sm font-bold text-blue-400 tracking-wider mb-2">PRODUCTIVITY UPLIFT</div>
+                        <div className="text-6xl font-black text-white mb-2">+42<span className="text-3xl text-gray-400">%</span></div>
+                      </div>
+                      <div className="pt-4 border-t border-blue-500/20">
+                        <div className="text-xs text-blue-300/80 font-medium mb-2">WHY IT MATTERS</div>
+                        <p className="text-sm text-gray-300 leading-relaxed">Proves economic value and performance gain.</p>
+                      </div>
+                      <div className="mt-4 pt-4 border-t border-blue-500/10">
+                        <span className="text-xs text-blue-400/70 font-semibold tracking-wide">BOARD-LEVEL SIGNAL</span>
+                      </div>
+                    </div>
+
+                    {/* 3. Wellbeing Risk Reduction */}
+                    <div className="bg-gradient-to-br from-purple-900/40 via-purple-800/20 to-gray-900/40 border-2 border-purple-500/50 rounded-2xl p-8 backdrop-blur-sm shadow-2xl shadow-purple-900/30 hover:shadow-purple-900/50 transition-all">
+                      <div className="flex items-start justify-between mb-4">
+                        <div className="w-14 h-14 bg-purple-500/20 rounded-xl flex items-center justify-center border border-purple-500/30">
+                          <svg className="w-8 h-8 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                          </svg>
+                        </div>
+                        <div className="flex items-center gap-2 bg-purple-500/20 px-3 py-1.5 rounded-lg">
+                          <span className="text-purple-400 text-xl font-bold">↓</span>
+                          <span className="text-purple-400 text-sm font-bold">-38%</span>
+                        </div>
+                      </div>
+                      <div className="mb-3">
+                        <div className="text-sm font-bold text-purple-400 tracking-wider mb-2">RISK REDUCTION</div>
+                        <div className="text-6xl font-black text-white mb-2">-38<span className="text-3xl text-gray-400">%</span></div>
+                      </div>
+                      <div className="pt-4 border-t border-purple-500/20">
+                        <div className="text-xs text-purple-300/80 font-medium mb-2">WHY IT MATTERS</div>
+                        <p className="text-sm text-gray-300 leading-relaxed">Reduces burnout, turnover, and hidden org risk.</p>
+                      </div>
+                      <div className="mt-4 pt-4 border-t border-purple-500/10">
+                        <span className="text-xs text-purple-400/70 font-semibold tracking-wide">BOARD-LEVEL SIGNAL</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Second Row - 2 Cards */}
+                  <div className="grid grid-cols-2 gap-5">
+                    {/* 4. Institutional Buy-In */}
+                    <div className="bg-gradient-to-br from-amber-900/40 via-amber-800/20 to-gray-900/40 border-2 border-amber-500/50 rounded-2xl p-8 backdrop-blur-sm shadow-2xl shadow-amber-900/30 hover:shadow-amber-900/50 transition-all">
+                      <div className="flex items-start justify-between mb-4">
+                        <div className="w-14 h-14 bg-amber-500/20 rounded-xl flex items-center justify-center border border-amber-500/30">
+                          <svg className="w-8 h-8 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                          </svg>
+                        </div>
+                        <div className="flex items-center gap-2 bg-amber-500/20 px-3 py-1.5 rounded-lg">
+                          <span className="text-amber-400 text-xl font-bold">↑</span>
+                          <span className="text-amber-400 text-sm font-bold">+67%</span>
+                        </div>
+                      </div>
+                      <div className="mb-3">
+                        <div className="text-sm font-bold text-amber-400 tracking-wider mb-2">INSTITUTIONAL BUY-IN</div>
+                        <div className="text-6xl font-black text-white mb-2">12<span className="text-3xl text-gray-400"> orgs</span></div>
+                      </div>
+                      <div className="pt-4 border-t border-amber-500/20">
+                        <div className="text-xs text-amber-300/80 font-medium mb-2">WHY IT MATTERS</div>
+                        <p className="text-sm text-gray-300 leading-relaxed">Shows credibility and trust from serious partners.</p>
+                      </div>
+                      <div className="mt-4 pt-4 border-t border-amber-500/10">
+                        <span className="text-xs text-amber-400/70 font-semibold tracking-wide">BOARD-LEVEL SIGNAL</span>
+                      </div>
+                    </div>
+
+                    {/* 5. Scalability Signal */}
+                    <div className="bg-gradient-to-br from-indigo-900/40 via-indigo-800/20 to-gray-900/40 border-2 border-indigo-500/50 rounded-2xl p-8 backdrop-blur-sm shadow-2xl shadow-indigo-900/30 hover:shadow-indigo-900/50 transition-all">
+                      <div className="flex items-start justify-between mb-4">
+                        <div className="w-14 h-14 bg-indigo-500/20 rounded-xl flex items-center justify-center border border-indigo-500/30">
+                          <svg className="w-8 h-8 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z" />
+                          </svg>
+                        </div>
+                        <div className="flex items-center gap-2 bg-indigo-500/20 px-3 py-1.5 rounded-lg">
+                          <span className="text-indigo-400 text-xl font-bold">↑</span>
+                          <span className="text-indigo-400 text-sm font-bold">+156%</span>
+                        </div>
+                      </div>
+                      <div className="mb-3">
+                        <div className="text-sm font-bold text-indigo-400 tracking-wider mb-2">SCALABILITY SIGNAL</div>
+                        <div className="text-6xl font-black text-white mb-2">3.4<span className="text-3xl text-gray-400">x</span></div>
+                      </div>
+                      <div className="pt-4 border-t border-indigo-500/20">
+                        <div className="text-xs text-indigo-300/80 font-medium mb-2">WHY IT MATTERS</div>
+                        <p className="text-sm text-gray-300 leading-relaxed">Proves it can grow beyond one pilot.</p>
+                      </div>
+                      <div className="mt-4 pt-4 border-t border-indigo-500/10">
+                        <span className="text-xs text-indigo-400/70 font-semibold tracking-wide">BOARD-LEVEL SIGNAL</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Supporting Metrics - Much Smaller Now */}
+                <div className="mb-6">
+                  <h4 className="text-sm font-semibold text-gray-400 mb-3 tracking-wide">SUPPORTING PORTFOLIO METRICS</h4>
+                  <div className="grid grid-cols-4 gap-3">
+                    <div className="bg-gradient-to-br from-emerald-900/20 to-emerald-800/10 border border-emerald-700/30 rounded-lg p-3">
+                      <div className="text-xs font-semibold text-emerald-400 mb-1">LOW RISK</div>
+                      <div className="text-2xl font-bold text-white">3</div>
+                    </div>
+                    <div className="bg-gradient-to-br from-amber-900/20 to-amber-800/10 border border-amber-700/30 rounded-lg p-3">
+                      <div className="text-xs font-semibold text-amber-400 mb-1">MEDIUM RISK</div>
+                      <div className="text-2xl font-bold text-white">3</div>
+                    </div>
+                    <div className="bg-gradient-to-br from-rose-900/20 to-rose-800/10 border border-rose-700/30 rounded-lg p-3">
+                      <div className="text-xs font-semibold text-rose-400 mb-1">HIGH RISK</div>
+                      <div className="text-2xl font-bold text-white">2</div>
+                    </div>
+                    <div className="bg-gradient-to-br from-indigo-900/20 to-indigo-800/10 border border-indigo-700/30 rounded-lg p-3">
+                      <div className="text-xs font-semibold text-indigo-400 mb-1">AVG BURNOUT</div>
+                      <div className="text-2xl font-bold text-white">55.5</div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Entrepreneur Cards Grid - Compact Supporting View */}
+                <div>
+                  <h4 className="text-sm font-semibold text-gray-400 mb-3 tracking-wide">INDIVIDUAL ENTREPRENEURS (Click to view details)</h4>
+                  <div className="grid grid-cols-4 gap-3">
+                    {entrepreneurs.map((entrepreneur, idx) => (
+                      <div 
+                        key={idx}
+                        onClick={() => setSelectedEntrepreneur(entrepreneur.name)}
+                        className="bg-gradient-to-br from-gray-800/40 to-gray-900/40 border border-gray-700/40 rounded-lg p-3 backdrop-blur-sm hover:border-indigo-500/50 transition-all cursor-pointer group"
+                      >
+                        <div className="flex items-start justify-between mb-2">
+                          <div className="w-8 h-8 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-lg flex items-center justify-center text-white text-xs font-bold flex-shrink-0">
+                            {entrepreneur.name.split(' ').map(n => n[0]).join('')}
+                          </div>
+                          <div className={`w-2 h-2 rounded-full ${
+                            entrepreneur.risk === "high" ? "bg-rose-500" :
+                            entrepreneur.risk === "medium" ? "bg-amber-500" :
+                            "bg-emerald-500"
+                          }`}></div>
+                        </div>
+                        <h3 className="text-sm font-semibold text-white group-hover:text-indigo-400 transition-colors mb-0.5 truncate">{entrepreneur.name}</h3>
+                        <p className="text-xs text-gray-400 truncate mb-2">{entrepreneur.project}</p>
+                        
+                        <div className="flex items-center justify-between text-xs">
+                          <span className="text-gray-500">Burnout</span>
+                          <span className={`font-bold ${
                             entrepreneur.burnout >= 70 ? "text-rose-400" :
                             entrepreneur.burnout >= 60 ? "text-amber-400" :
                             "text-emerald-400"
-                          }`}>{entrepreneur.burnout}</div>
+                          }`}>{entrepreneur.burnout}</span>
                         </div>
                       </div>
-
-                      {/* Growth Indicator */}
-                      <div className="flex items-center justify-between pt-3 border-t border-gray-700/50">
-                        <span className="text-xs text-gray-400">Growth</span>
-                        <span className={`text-sm font-semibold flex items-center gap-1 ${
-                          entrepreneur.growth > 0 ? "text-emerald-400" : "text-rose-400"
-                        }`}>
-                          {entrepreneur.growth > 0 ? "↑" : "↓"} {Math.abs(entrepreneur.growth)}%
-                        </span>
-                      </div>
-                    </div>
-                  ))}
+                    ))}
+                  </div>
                 </div>
 
-                {/* Recent Alerts */}
-                <div className="bg-gradient-to-br from-gray-800/30 to-gray-900/30 border border-gray-700/50 rounded-xl p-6 backdrop-blur-sm">
-                  <h3 className="text-lg font-semibold text-white mb-4">Recent Alerts</h3>
-                  <div className="space-y-3">
-                    <div className="bg-rose-900/20 border-l-4 border-rose-500 p-4 rounded-lg flex items-start justify-between">
-                      <div className="flex items-start gap-3 flex-1">
-                        <svg className="w-5 h-5 text-rose-400 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                {/* Recent Alerts - Compact */}
+                <div className="bg-gradient-to-br from-gray-800/20 to-gray-900/20 border border-gray-700/30 rounded-lg p-4 backdrop-blur-sm">
+                  <h4 className="text-sm font-semibold text-gray-400 mb-3 tracking-wide">RECENT ALERTS</h4>
+                  <div className="space-y-2">
+                    <div className="bg-rose-900/20 border-l-2 border-rose-500 p-3 rounded flex items-center justify-between">
+                      <div className="flex items-center gap-2 flex-1">
+                        <svg className="w-4 h-4 text-rose-400 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                           <path fillRule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
                         </svg>
-                        <div>
-                          <div className="text-sm font-semibold text-white mb-1">Priya Sharma - Critical Burnout Risk</div>
-                          <div className="text-xs text-gray-400">Burnout index at 78/100. Immediate intervention recommended.</div>
-                          <div className="text-xs text-gray-500 mt-1">2 hours ago</div>
+                        <div className="flex-1">
+                          <div className="text-xs font-semibold text-white">Priya Sharma - Critical Burnout (78/100)</div>
+                          <div className="text-xs text-gray-500">2 hours ago</div>
                         </div>
                       </div>
-                      <button className="text-xs bg-rose-600 hover:bg-rose-500 text-white px-3 py-1.5 rounded transition-colors flex-shrink-0">
+                      <button onClick={() => setSelectedEntrepreneur("Priya Sharma")} className="text-xs bg-rose-600 hover:bg-rose-500 text-white px-2 py-1 rounded transition-colors flex-shrink-0">
                         View
                       </button>
                     </div>
-                    <div className="bg-amber-900/20 border-l-4 border-amber-500 p-4 rounded-lg flex items-start justify-between">
-                      <div className="flex items-start gap-3 flex-1">
-                        <svg className="w-5 h-5 text-amber-400 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                    <div className="bg-amber-900/20 border-l-2 border-amber-500 p-3 rounded flex items-center justify-between">
+                      <div className="flex items-center gap-2 flex-1">
+                        <svg className="w-4 h-4 text-amber-400 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                           <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
                         </svg>
-                        <div>
-                          <div className="text-sm font-semibold text-white mb-1">Carlos Rodriguez - Cash Runway Warning</div>
-                          <div className="text-xs text-gray-400">Only 5.2 months runway remaining. Revenue trending negative.</div>
-                          <div className="text-xs text-gray-500 mt-1">5 hours ago</div>
+                        <div className="flex-1">
+                          <div className="text-xs font-semibold text-white">Carlos Rodriguez - Low Runway (5.2mo)</div>
+                          <div className="text-xs text-gray-500">5 hours ago</div>
                         </div>
                       </div>
-                      <button className="text-xs bg-amber-600 hover:bg-amber-500 text-white px-3 py-1.5 rounded transition-colors flex-shrink-0">
+                      <button onClick={() => setSelectedEntrepreneur("Carlos Rodriguez")} className="text-xs bg-amber-600 hover:bg-amber-500 text-white px-2 py-1 rounded transition-colors flex-shrink-0">
                         View
                       </button>
                     </div>
@@ -287,500 +393,434 @@ export default function Home() {
                   
                   return (
                     <>
-                      {/* Entrepreneur Header */}
-                      <div className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 border border-gray-700/50 rounded-xl p-6 backdrop-blur-sm">
+                      {/* Entrepreneur Header - Compact */}
+                      <div className="mb-6">
                         <div className="flex items-start justify-between">
-                          <div className="flex items-start gap-4">
-                            <div className="w-16 h-16 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-xl flex items-center justify-center text-white text-2xl font-bold">
+                          <div className="flex items-start gap-3">
+                            <div className="w-12 h-12 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-lg flex items-center justify-center text-white text-lg font-bold">
                               {entrepreneur.name.split(' ').map(n => n[0]).join('')}
                             </div>
                             <div>
-                              <h2 className="text-2xl font-bold text-white mb-1">{entrepreneur.name}</h2>
-                              <p className="text-sm text-gray-400 mb-2">{entrepreneur.project} • Founded March 2024</p>
-                              <div className="flex items-center gap-3">
-                                <span className={`text-xs px-2 py-1 rounded border ${
-                                  entrepreneur.risk === "high" ? "bg-rose-500/20 text-rose-300 border-rose-500/30" :
-                                  entrepreneur.risk === "medium" ? "bg-amber-500/20 text-amber-300 border-amber-500/30" :
-                                  "bg-emerald-500/20 text-emerald-300 border-emerald-500/30"
-                                }`}>
-                                  ⚠ Risk Level: {entrepreneur.risk.charAt(0).toUpperCase() + entrepreneur.risk.slice(1)}
-                                </span>
-                                <span className="text-xs bg-gray-700/50 text-gray-300 px-2 py-1 rounded">Month {entrepreneur.month} / {entrepreneur.total}</span>
-                                <span className={`text-xs px-2 py-1 rounded ${
-                                  entrepreneur.growth > 0 ? "bg-emerald-500/20 text-emerald-300" : "bg-rose-500/20 text-rose-300"
-                                }`}>
-                                  Revenue Trending {entrepreneur.growth > 0 ? "Up" : "Down"}
-                                </span>
-                              </div>
+                              <h2 className="text-xl font-bold text-white mb-0.5">{entrepreneur.name}</h2>
+                              <p className="text-xs text-gray-400">{entrepreneur.project} • Month {entrepreneur.month}/{entrepreneur.total}</p>
                             </div>
                           </div>
                           <div className="flex gap-2">
-                            <button className="bg-gray-700/50 hover:bg-gray-700 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors">
-                              View Full Report
+                            <button className="bg-gray-700/50 hover:bg-gray-700 text-white px-3 py-1.5 rounded-lg text-xs font-medium transition-colors">
+                              Full Report
                             </button>
-                            <button className="bg-indigo-600 hover:bg-indigo-500 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors">
-                              Schedule Intervention
-                            </button>
-                          </div>
-                        </div>
-                      </div>
-
-                      {/* Top KPI Cards */}
-                      <div className="grid grid-cols-4 gap-4">
-                        <div className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 border border-gray-700/50 rounded-xl p-4 backdrop-blur-sm">
-                          <div className="flex items-center justify-between mb-2">
-                            <div className="text-xs font-semibold text-gray-400 tracking-wider">REVENUE RUN-RATE</div>
-                            <span className={entrepreneur.growth > 0 ? "text-emerald-400" : "text-rose-400"}>{entrepreneur.growth > 0 ? "↑" : "↓"}</span>
-                          </div>
-                          <div className="text-2xl font-bold text-white mb-1">${entrepreneur.revenue}M</div>
-                          <div className={`text-xs ${entrepreneur.growth > 0 ? "text-emerald-400" : "text-rose-400"}`}>
-                            {entrepreneur.growth > 0 ? "+" : ""}{entrepreneur.growth}% vs last period
-                          </div>
-                        </div>
-
-                        <div className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 border border-gray-700/50 rounded-xl p-4 backdrop-blur-sm">
-                          <div className="flex items-center justify-between mb-2">
-                            <div className="text-xs font-semibold text-gray-400 tracking-wider">CASH RUNWAY</div>
-                            <span className={entrepreneur.runway > 12 ? "text-emerald-400" : entrepreneur.runway > 6 ? "text-amber-400" : "text-rose-400"}>
-                              {entrepreneur.runway > 12 ? "✓" : "⚠"}
-                            </span>
-                          </div>
-                          <div className="text-2xl font-bold text-white mb-1">{entrepreneur.runway} mo</div>
-                          <div className="text-xs text-gray-400">
-                            {entrepreneur.runway > 12 ? "Healthy" : entrepreneur.runway > 6 ? "Monitor" : "Critical"}
-                          </div>
-                        </div>
-
-                        <div className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 border border-gray-700/50 rounded-xl p-4 backdrop-blur-sm">
-                          <div className="flex items-center justify-between mb-2">
-                            <div className="text-xs font-semibold text-gray-400 tracking-wider">BURNOUT INDEX</div>
-                            <span className={entrepreneur.burnout >= 70 ? "text-rose-400" : entrepreneur.burnout >= 60 ? "text-amber-400" : "text-emerald-400"}>
-                              {entrepreneur.burnout >= 70 ? "!" : entrepreneur.burnout >= 60 ? "⚠" : "✓"}
-                            </span>
-                          </div>
-                          <div className="text-2xl font-bold text-white mb-1">{entrepreneur.burnout}/100</div>
-                          <div className={`text-xs ${entrepreneur.burnout >= 70 ? "text-rose-400" : entrepreneur.burnout >= 60 ? "text-amber-400" : "text-emerald-400"}`}>
-                            {entrepreneur.burnout >= 70 ? "Critical" : entrepreneur.burnout >= 60 ? "Elevated" : "Healthy"}
-                          </div>
-                        </div>
-
-                        <div className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 border border-gray-700/50 rounded-xl p-4 backdrop-blur-sm">
-                          <div className="flex items-center justify-between mb-2">
-                            <div className="text-xs font-semibold text-gray-400 tracking-wider">OVERALL STATUS</div>
-                            <span className={
-                              entrepreneur.risk === "high" ? "text-rose-400" :
-                              entrepreneur.risk === "medium" ? "text-amber-400" :
-                              "text-emerald-400"
-                            }>●</span>
-                          </div>
-                          <div className={`text-2xl font-bold mb-1 ${
-                            entrepreneur.risk === "high" ? "text-rose-400" :
-                            entrepreneur.risk === "medium" ? "text-amber-400" :
-                            "text-emerald-400"
-                          }`}>
-                            {entrepreneur.risk.charAt(0).toUpperCase() + entrepreneur.risk.slice(1)}
-                          </div>
-                          <div className="text-xs text-gray-400">
-                            {entrepreneur.risk === "high" ? "Needs action" : entrepreneur.risk === "medium" ? "Monitor" : "On track"}
-                          </div>
-                        </div>
-                      </div>
-
-            {/* Business Performance Section */}
-            <section className="bg-gradient-to-br from-gray-800/30 to-gray-900/30 border border-gray-700/50 rounded-xl p-6 backdrop-blur-sm">
-              <div className="flex items-center justify-between mb-5">
-                <div>
-                  <h2 className="text-xl font-bold text-white mb-1">Business Performance</h2>
-                  <p className="text-xs text-gray-400">Directional signals for revenue health, liquidity, and margin pressure.</p>
-                </div>
-                <div className="bg-blue-600/20 border border-blue-500/30 px-3 py-1 rounded-md">
-                  <span className="text-blue-300 text-xs font-semibold tracking-wide">CORE FINANCE</span>
-                </div>
-              </div>
-
-              <div className="grid grid-cols-4 gap-4">
-                {/* Revenue Trend */}
-                <div className="bg-gray-800/40 border border-gray-700/30 rounded-lg p-4">
-                  <div className="flex items-center justify-between mb-2">
-                    <span className="text-xs font-medium text-gray-300">Revenue trend</span>
-                    <span className="bg-emerald-500/20 text-emerald-400 text-xs font-bold px-2 py-1 rounded">UP</span>
-                  </div>
-                  <div className="text-2xl font-bold text-white mb-1">+7.4%</div>
-                  <div className="text-xs text-gray-400">vs previous period</div>
-                </div>
-
-                {/* Cashflow Status */}
-                <div className="bg-gray-800/40 border border-gray-700/30 rounded-lg p-4">
-                  <div className="flex items-center justify-between mb-2">
-                    <span className="text-xs font-medium text-gray-300">Cashflow status</span>
-                    <span className="bg-blue-500/20 text-blue-400 text-xs font-bold px-2 py-1 rounded">STABLE</span>
-                  </div>
-                  <div className="text-2xl font-bold text-white mb-1">1.6x</div>
-                  <div className="text-xs text-gray-400">Current ratio</div>
-                </div>
-
-                {/* Sales/Order Pipeline */}
-                <div className="bg-gray-800/40 border border-gray-700/30 rounded-lg p-4">
-                  <div className="flex items-center justify-between mb-2">
-                    <span className="text-xs font-medium text-gray-300">Sales / order pipeline</span>
-                    <span className="bg-emerald-500/20 text-emerald-400 text-xs font-bold px-2 py-1 rounded">STRONG</span>
-                  </div>
-                  <div className="text-2xl font-bold text-white mb-1">$2.1M</div>
-                  <div className="text-xs text-gray-400">Confirmed + potential</div>
-                </div>
-
-                {/* Cost Pressure Indicator */}
-                <div className="bg-gray-800/40 border border-gray-700/30 rounded-lg p-4">
-                  <div className="flex items-center justify-between mb-2">
-                    <span className="text-xs font-medium text-gray-300">Cost pressure indicator</span>
-                    <span className="bg-amber-500/20 text-amber-400 text-xs font-bold px-2 py-1 rounded">WATCH</span>
-                  </div>
-                  <div className="text-2xl font-bold text-white mb-1">+3.1%</div>
-                  <div className="text-xs text-gray-400">Rising costs</div>
-                </div>
-              </div>
-            </section>
-
-            {/* Workforce & Productivity Section */}
-            <section className="bg-gradient-to-br from-gray-800/30 to-gray-900/30 border border-gray-700/50 rounded-xl p-6 backdrop-blur-sm">
-              <div className="flex items-center justify-between mb-5">
-                <div>
-                  <h2 className="text-xl font-bold text-white mb-1">Workforce & Productivity</h2>
-                  <p className="text-xs text-gray-400">Capacity signals showing how teams are performing and scaling.</p>
-                </div>
-                <div className="bg-purple-600/20 border border-purple-500/30 px-3 py-1 rounded-md">
-                  <span className="text-purple-300 text-xs font-semibold tracking-wide">OPERATIONS</span>
-                </div>
-              </div>
-
-              <div className="grid grid-cols-4 gap-4">
-                {/* Workforce Utilisation */}
-                <div className="bg-gray-800/40 border border-gray-700/30 rounded-lg p-4">
-                  <div className="flex items-center justify-between mb-2">
-                    <span className="text-xs font-medium text-gray-300">Workforce utilisation</span>
-                    <span className="bg-emerald-500/20 text-emerald-400 text-xs font-bold px-2 py-1 rounded">HEALTHY</span>
-                  </div>
-                  <div className="text-2xl font-bold text-white mb-1">82%</div>
-                  <div className="text-xs text-gray-400">Manpower usage</div>
-                </div>
-
-                {/* Task Completion Velocity */}
-                <div className="bg-gray-800/40 border border-gray-700/30 rounded-lg p-4">
-                  <div className="flex items-center justify-between mb-2">
-                    <span className="text-xs font-medium text-gray-300">Task completion velocity</span>
-                    <span className="bg-emerald-500/20 text-emerald-400 text-xs font-bold px-2 py-1 rounded">UP</span>
-                  </div>
-                  <div className="text-2xl font-bold text-white mb-1">+12%</div>
-                  <div className="text-xs text-gray-400">vs planned</div>
-                </div>
-
-                {/* Absenteeism Signal */}
-                <div className="bg-gray-800/40 border border-gray-700/30 rounded-lg p-4">
-                  <div className="flex items-center justify-between mb-2">
-                    <span className="text-xs font-medium text-gray-300">Absenteeism signal</span>
-                    <span className="bg-gray-500/20 text-gray-400 text-xs font-bold px-2 py-1 rounded">LOW</span>
-                  </div>
-                  <div className="text-2xl font-bold text-white mb-1">1.4%</div>
-                  <div className="text-xs text-gray-400">Unplanned absence</div>
-                </div>
-
-                {/* Overtime/Overload Flag */}
-                <div className="bg-gray-800/40 border border-gray-700/30 rounded-lg p-4">
-                  <div className="flex items-center justify-between mb-2">
-                    <span className="text-xs font-medium text-gray-300">Overtime / overload flag</span>
-                    <span className="bg-amber-500/20 text-amber-400 text-xs font-bold px-2 py-1 rounded">MODERATE</span>
-                  </div>
-                  <div className="text-2xl font-bold text-white mb-1">29 hrs</div>
-                  <div className="text-xs text-gray-400">Weekly average</div>
-                </div>
-              </div>
-            </section>
-
-                      {/* Wellbeing & Risk Signals Section */}
-                      <section className="bg-gradient-to-br from-gray-800/30 to-gray-900/30 border border-gray-700/50 rounded-xl p-6 backdrop-blur-sm">
-                        <div className="flex items-center justify-between mb-5">
-                          <div>
-                            <h2 className="text-xl font-bold text-white mb-1">Wellbeing & Risk Alerts</h2>
-                            <p className="text-xs text-gray-400">Early risk monitoring for leadership and business continuity.</p>
-                          </div>
-                          <div className={`px-3 py-1 rounded-md flex items-center gap-2 border ${
-                            entrepreneur.burnout >= 70 ? "bg-rose-600/20 border-rose-500/30" :
-                            entrepreneur.burnout >= 60 ? "bg-amber-600/20 border-amber-500/30" :
-                            "bg-emerald-600/20 border-emerald-500/30"
-                          }`}>
-                            <span className={`w-1.5 h-1.5 rounded-full ${
-                              entrepreneur.burnout >= 70 ? "bg-rose-400 animate-pulse" :
-                              entrepreneur.burnout >= 60 ? "bg-amber-400 animate-pulse" :
-                              "bg-emerald-400"
-                            }`}></span>
-                            <span className={`text-xs font-semibold tracking-wide ${
-                              entrepreneur.burnout >= 70 ? "text-rose-300" :
-                              entrepreneur.burnout >= 60 ? "text-amber-300" :
-                              "text-emerald-300"
-                            }`}>
-                              {entrepreneur.burnout >= 70 ? "Risk Alerts: 2 Active" : entrepreneur.burnout >= 60 ? "Risk Alerts: 1 Active" : "All Clear"}
-                            </span>
-                          </div>
-                        </div>
-
-                        <div className="grid grid-cols-2 gap-6 mb-4">
-                          {/* Burnout Risk Index with Lifeline */}
-                          <div className="bg-gradient-to-br from-gray-800/60 to-gray-900/60 border border-gray-700/40 rounded-xl p-5 relative overflow-hidden">
-                            <div className="relative z-10">
-                              <div className="flex items-start justify-between mb-3">
-                                <div>
-                                  <span className="text-sm font-medium text-gray-300 block mb-1">Burnout Risk</span>
-                                  <div className="text-4xl font-bold text-white">{entrepreneur.burnout}<span className="text-2xl text-gray-400">/100</span></div>
-                                </div>
-                                <span className={`text-xs font-bold px-3 py-1.5 rounded border ${
-                                  entrepreneur.burnout >= 70 ? "bg-rose-500/20 text-rose-400 border-rose-500/30" :
-                                  entrepreneur.burnout >= 60 ? "bg-amber-500/20 text-amber-400 border-amber-500/30" :
-                                  "bg-emerald-500/20 text-emerald-400 border-emerald-500/30"
-                                }`}>
-                                  {entrepreneur.burnout >= 70 ? "CRITICAL" : entrepreneur.burnout >= 60 ? "ELEVATED" : "HEALTHY"}
-                                </span>
-                              </div>
-                    
-                    {/* Lifeline Graph */}
-                    <div className="mt-4 h-24 relative">
-                      <svg className="w-full h-full" viewBox="0 0 400 80" preserveAspectRatio="none">
-                        <defs>
-                          <linearGradient id="burnoutGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                            <stop offset="0%" style={{ stopColor: '#3b82f6', stopOpacity: 1 }} />
-                            <stop offset="50%" style={{ stopColor: '#8b5cf6', stopOpacity: 1 }} />
-                            <stop offset="100%" style={{ stopColor: '#f97316', stopOpacity: 1 }} />
-                          </linearGradient>
-                          <linearGradient id="burnoutGlow" x1="0%" y1="0%" x2="100%" y2="0%">
-                            <stop offset="0%" style={{ stopColor: '#3b82f6', stopOpacity: 0.3 }} />
-                            <stop offset="50%" style={{ stopColor: '#8b5cf6', stopOpacity: 0.3 }} />
-                            <stop offset="100%" style={{ stopColor: '#f97316', stopOpacity: 0.3 }} />
-                          </linearGradient>
-                        </defs>
-                        
-                        {/* Glow effect */}
-                        <path
-                          d="M 0 40 Q 20 35, 40 38 T 80 42 Q 100 45, 120 35 T 160 30 Q 180 25, 200 40 T 240 50 Q 260 55, 280 45 T 320 40 Q 340 35, 360 42 T 400 45"
-                          fill="none"
-                          stroke="url(#burnoutGlow)"
-                          strokeWidth="6"
-                          opacity="0.5"
-                        />
-                        
-                        {/* Main line */}
-                        <path
-                          d="M 0 40 Q 20 35, 40 38 T 80 42 Q 100 45, 120 35 T 160 30 Q 180 25, 200 40 T 240 50 Q 260 55, 280 45 T 320 40 Q 340 35, 360 42 T 400 45"
-                          fill="none"
-                          stroke="url(#burnoutGradient)"
-                          strokeWidth="2.5"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        />
-                      </svg>
-                    </div>
-                    
-                    <div className="text-xs text-gray-400 mt-2">Aggregate indicator of sustained overload and stress risk</div>
-                  </div>
-                </div>
-
-                {/* Cognitive Load Proxy with Lifeline */}
-                <div className="bg-gradient-to-br from-gray-800/60 to-gray-900/60 border border-gray-700/40 rounded-xl p-5 relative overflow-hidden">
-                  <div className="relative z-10">
-                    <div className="flex items-start justify-between mb-3">
-                      <div>
-                        <span className="text-sm font-medium text-gray-300 block mb-1">Cognitive Load</span>
-                        <div className="text-4xl font-bold text-white">71<span className="text-2xl text-gray-400">/100</span></div>
-                      </div>
-                      <span className="bg-rose-500/20 text-rose-400 text-xs font-bold px-3 py-1.5 rounded border border-rose-500/30">RISING</span>
-                    </div>
-                    
-                    {/* Lifeline Graph */}
-                    <div className="mt-4 h-24 relative">
-                      <svg className="w-full h-full" viewBox="0 0 400 80" preserveAspectRatio="none">
-                        <defs>
-                          <linearGradient id="cognitiveGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                            <stop offset="0%" style={{ stopColor: '#6366f1', stopOpacity: 1 }} />
-                            <stop offset="50%" style={{ stopColor: '#a855f7', stopOpacity: 1 }} />
-                            <stop offset="100%" style={{ stopColor: '#ec4899', stopOpacity: 1 }} />
-                          </linearGradient>
-                          <linearGradient id="cognitiveGlow" x1="0%" y1="0%" x2="100%" y2="0%">
-                            <stop offset="0%" style={{ stopColor: '#6366f1', stopOpacity: 0.3 }} />
-                            <stop offset="50%" style={{ stopColor: '#a855f7', stopOpacity: 0.3 }} />
-                            <stop offset="100%" style={{ stopColor: '#ec4899', stopOpacity: 0.3 }} />
-                          </linearGradient>
-                        </defs>
-                        
-                        {/* Glow effect */}
-                        <path
-                          d="M 0 45 Q 25 40, 50 42 T 100 38 Q 120 35, 140 45 T 180 55 Q 200 60, 220 50 T 260 35 Q 280 25, 300 38 T 340 48 Q 360 52, 380 45 L 400 42"
-                          fill="none"
-                          stroke="url(#cognitiveGlow)"
-                          strokeWidth="6"
-                          opacity="0.5"
-                        />
-                        
-                        {/* Main line */}
-                        <path
-                          d="M 0 45 Q 25 40, 50 42 T 100 38 Q 120 35, 140 45 T 180 55 Q 200 60, 220 50 T 260 35 Q 280 25, 300 38 T 340 48 Q 360 52, 380 45 L 400 42"
-                          fill="none"
-                          stroke="url(#cognitiveGradient)"
-                          strokeWidth="2.5"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        />
-                      </svg>
-                    </div>
-                    
-                    <div className="text-xs text-gray-400 mt-2">Measure of mental strain from work intensity and complexity</div>
-                  </div>
-                </div>
-              </div>
-
-              <div className="grid grid-cols-2 gap-4">
-                {/* Engagement Pulse */}
-                <div className="bg-gray-800/40 border border-gray-700/30 rounded-lg p-4">
-                  <div className="flex items-center justify-between mb-2">
-                    <span className="text-xs font-medium text-gray-300">Engagement pulse</span>
-                    <span className="bg-blue-500/20 text-blue-400 text-xs font-bold px-2 py-1 rounded">STEADY</span>
-                  </div>
-                  <div className="text-2xl font-bold text-white mb-1">7.6 / 10</div>
-                  <div className="text-xs text-gray-400">Short, trend-based signal of morale and commitment</div>
-                </div>
-
-                {/* Risk Alerts/Red Flags */}
-                <div className="bg-gray-800/40 border border-rose-500/30 rounded-lg p-4">
-                  <div className="flex items-center justify-between mb-2">
-                    <span className="text-xs font-medium text-gray-300">Risk alerts / red flags</span>
-                    <span className="bg-rose-500/30 text-rose-300 text-xs font-bold px-2 py-1 rounded flex items-center gap-1">
-                      <span className="w-1.5 h-1.5 bg-rose-400 rounded-full"></span>
-                      2 ACTIVE
-                    </span>
-                  </div>
-                  <div className="text-lg font-bold text-white mb-1">Compliance, churn</div>
-                  <div className="text-xs text-gray-400">System-level warnings requiring management attention</div>
-                </div>
-              </div>
-
-                        {/* Critical Alert Banner */}
-                        {entrepreneur.burnout >= 70 && (
-                          <div className="mt-4 bg-rose-900/30 border-l-4 border-rose-500 p-4 rounded-lg">
-                            <div className="flex items-start gap-3">
-                              <div className="flex-shrink-0">
-                                <svg className="w-5 h-5 text-rose-400" fill="currentColor" viewBox="0 0 20 20">
-                                  <path fillRule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
-                                </svg>
-                              </div>
-                              <div className="flex-1">
-                                <h4 className="text-sm font-semibold text-rose-300 mb-1">Critical Burnout Risk Detected</h4>
-                                <p className="text-xs text-gray-300">Entrepreneur showing signs of sustained stress. Advisor intervention recommended within 48 hours. Last contact: 6 days ago.</p>
-                              </div>
-                              <button className="flex-shrink-0 bg-rose-600 hover:bg-rose-500 text-white px-3 py-1.5 rounded text-xs font-medium transition-colors">
-                                Create Intervention
-                              </button>
-                            </div>
-                          </div>
-                        )}
-                      </section>
-
-                      {/* AI Insights & Advisor Notes Grid */}
-                      <div className="grid grid-cols-2 gap-6">
-                        {/* AI Insights Panel */}
-                        <section className="bg-gradient-to-br from-indigo-900/20 to-purple-900/20 border border-indigo-700/30 rounded-xl p-6 backdrop-blur-sm">
-                          <div className="flex items-center justify-between mb-4">
-                            <div className="flex items-center gap-2">
-                              <div className="w-8 h-8 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-lg flex items-center justify-center">
-                                <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                                </svg>
-                              </div>
-                              <h3 className="text-lg font-semibold text-white">AI Daily Insights</h3>
-                            </div>
-                            <span className="text-xs text-gray-400">Generated 2 hrs ago</span>
-                          </div>
-                          <div className="space-y-3">
-                            {entrepreneur.growth > 0 ? (
-                              <div className="flex items-start gap-3">
-                                <span className="text-emerald-400 text-xs font-bold mt-0.5">↑</span>
-                                <p className="text-sm text-gray-300">Revenue growth accelerating - up {entrepreneur.growth}% recent period. Sales pipeline conversion improved.</p>
-                              </div>
-                            ) : (
-                              <div className="flex items-start gap-3">
-                                <span className="text-rose-400 text-xs font-bold mt-0.5">↓</span>
-                                <p className="text-sm text-gray-300">Revenue declining by {Math.abs(entrepreneur.growth)}%. Recommend reviewing customer acquisition strategy.</p>
-                              </div>
-                            )}
-                            
-                            {entrepreneur.burnout >= 60 && (
-                              <div className="flex items-start gap-3">
-                                <span className="text-amber-400 text-xs font-bold mt-0.5">⚠</span>
-                                <p className="text-sm text-gray-300">Burnout index at {entrepreneur.burnout}/100. Pattern analysis shows increased evening work hours.</p>
-                              </div>
-                            )}
-                            
-                            {entrepreneur.runway < 8 && (
-                              <div className="flex items-start gap-3">
-                                <span className="text-rose-400 text-xs font-bold mt-0.5">!</span>
-                                <p className="text-sm text-gray-300">Cash runway at {entrepreneur.runway} months. Consider accelerating fundraising timeline.</p>
-                              </div>
-                            )}
-                            
-                            <div className="flex items-start gap-3">
-                              <span className="text-blue-400 text-xs font-bold mt-0.5">ℹ</span>
-                              <p className="text-sm text-gray-300">Team productivity stable at 82% capacity. Process improvements showing positive results.</p>
-                            </div>
-                            
-                            {entrepreneur.growth < 0 && (
-                              <div className="flex items-start gap-3">
-                                <span className="text-amber-400 text-xs font-bold mt-0.5">⚠</span>
-                                <p className="text-sm text-gray-300">Customer retention metrics need attention. Recommend immediate analysis and intervention.</p>
-                              </div>
-                            )}
-                          </div>
-                          <button className="w-full mt-4 bg-indigo-600/20 hover:bg-indigo-600/30 border border-indigo-500/30 text-indigo-300 px-4 py-2 rounded-lg text-sm font-medium transition-colors">
-                            View Full AI Report
-                          </button>
-                        </section>
-
-                        {/* Advisor Notes & Actions */}
-                        <section className="bg-gradient-to-br from-gray-800/30 to-gray-900/30 border border-gray-700/50 rounded-xl p-6 backdrop-blur-sm">
-                          <div className="flex items-center justify-between mb-4">
-                            <h3 className="text-lg font-semibold text-white">Recent Advisor Notes</h3>
-                            <button className="text-xs text-indigo-400 hover:text-indigo-300 font-medium">+ Add Note</button>
-                          </div>
-                          <div className="space-y-3 mb-4">
-                            <div className="bg-gray-800/40 border border-gray-700/30 rounded-lg p-3">
-                              <div className="flex items-start justify-between mb-2">
-                                <span className="text-xs font-medium text-gray-300">Jan 16, 2026</span>
-                                <span className="text-xs text-gray-500">by Michael Torres</span>
-                              </div>
-                              <p className="text-sm text-gray-400">
-                                {entrepreneur.burnout >= 60 
-                                  ? `Scheduled check-in call for Jan 20. Will discuss workload management and burnout prevention strategies with ${entrepreneur.name.split(' ')[0]}.`
-                                  : `Regular check-in completed. ${entrepreneur.name.split(' ')[0]} is performing well. Will monitor progress on growth initiatives.`
-                                }
-                              </p>
-                            </div>
-                            <div className="bg-gray-800/40 border border-gray-700/30 rounded-lg p-3">
-                              <div className="flex items-start justify-between mb-2">
-                                <span className="text-xs font-medium text-gray-300">Jan 12, 2026</span>
-                                <span className="text-xs text-gray-500">by Michael Torres</span>
-                              </div>
-                              <p className="text-sm text-gray-400">
-                                {entrepreneur.growth > 0
-                                  ? `Revenue metrics strong. ${entrepreneur.name.split(' ')[0]} showing positive momentum. Continue monitoring key indicators.`
-                                  : `Revenue challenges noted. Working with ${entrepreneur.name.split(' ')[0]} on customer acquisition and retention strategies.`
-                                }
-                              </p>
-                            </div>
-                          </div>
-                          <div className="flex gap-2">
-                            <button className="flex-1 bg-gray-700/50 hover:bg-gray-700 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors">
-                              View All Notes
-                            </button>
-                            <button className="flex-1 bg-indigo-600 hover:bg-indigo-500 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors">
+                            <button className="bg-indigo-600 hover:bg-indigo-500 text-white px-3 py-1.5 rounded-lg text-xs font-medium transition-colors">
                               Schedule Call
                             </button>
                           </div>
+                        </div>
+                      </div>
+
+                      {/* TOP 4 KEY PERFORMANCE INDICATORS - MASSIVE HERO CARDS */}
+                      <div className="mb-8">
+                        <div className="flex items-center justify-between mb-4">
+                          <div className="flex items-center gap-3">
+                            <div className="w-1 h-8 bg-gradient-to-b from-indigo-500 to-purple-600 rounded-full"></div>
+                            <h3 className="text-lg font-bold text-white tracking-wide">KEY PERFORMANCE INDICATORS</h3>
+                          </div>
+                          <span className={`text-xs font-semibold px-3 py-1.5 rounded-lg border ${
+                            entrepreneur.risk === "high" ? "bg-rose-600/20 text-rose-400 border-rose-500/30" :
+                            entrepreneur.risk === "medium" ? "bg-amber-600/20 text-amber-400 border-amber-500/30" :
+                            "bg-emerald-600/20 text-emerald-400 border-emerald-500/30"
+                          }`}>
+                            RISK: {entrepreneur.risk.toUpperCase()}
+                          </span>
+                        </div>
+
+                        <div className="grid grid-cols-2 gap-6">
+                          {/* 1. Revenue Run-Rate */}
+                          <div className={`bg-gradient-to-br border-2 rounded-2xl p-8 backdrop-blur-sm shadow-2xl transition-all ${
+                            entrepreneur.growth > 0 
+                              ? "from-emerald-900/40 via-emerald-800/20 to-gray-900/40 border-emerald-500/50 shadow-emerald-900/30"
+                              : "from-rose-900/40 via-rose-800/20 to-gray-900/40 border-rose-500/50 shadow-rose-900/30"
+                          }`}>
+                            <div className="flex items-start justify-between mb-4">
+                              <div className={`w-14 h-14 rounded-xl flex items-center justify-center border ${
+                                entrepreneur.growth > 0
+                                  ? "bg-emerald-500/20 border-emerald-500/30"
+                                  : "bg-rose-500/20 border-rose-500/30"
+                              }`}>
+                                <svg className={`w-8 h-8 ${entrepreneur.growth > 0 ? "text-emerald-400" : "text-rose-400"}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                </svg>
+                              </div>
+                              <div className={`flex items-center gap-2 px-3 py-1.5 rounded-lg ${
+                                entrepreneur.growth > 0 ? "bg-emerald-500/20" : "bg-rose-500/20"
+                              }`}>
+                                <span className={`text-xl font-bold ${entrepreneur.growth > 0 ? "text-emerald-400" : "text-rose-400"}`}>
+                                  {entrepreneur.growth > 0 ? "↑" : "↓"}
+                                </span>
+                                <span className={`text-sm font-bold ${entrepreneur.growth > 0 ? "text-emerald-400" : "text-rose-400"}`}>
+                                  {entrepreneur.growth > 0 ? "+" : ""}{entrepreneur.growth}%
+                                </span>
+                              </div>
+                            </div>
+                            <div className="mb-3">
+                              <div className={`text-sm font-bold tracking-wider mb-2 ${
+                                entrepreneur.growth > 0 ? "text-emerald-400" : "text-rose-400"
+                              }`}>
+                                REVENUE RUN-RATE
+                              </div>
+                              <div className="text-6xl font-black text-white mb-2">
+                                ${entrepreneur.revenue}<span className="text-3xl text-gray-400">M</span>
+                              </div>
+                            </div>
+                            <div className={`pt-4 border-t ${
+                              entrepreneur.growth > 0 ? "border-emerald-500/20" : "border-rose-500/20"
+                            }`}>
+                              <div className={`text-xs font-medium mb-2 ${
+                                entrepreneur.growth > 0 ? "text-emerald-300/80" : "text-rose-300/80"
+                              }`}>
+                                WHY IT MATTERS
+                              </div>
+                              <p className="text-sm text-gray-300 leading-relaxed">
+                                {entrepreneur.growth > 0 
+                                  ? "Strong revenue growth indicates market fit and scalable business model."
+                                  : "Revenue decline requires immediate attention to customer retention and acquisition."}
+                              </p>
+                            </div>
+                          </div>
+
+                          {/* 2. Cash Runway */}
+                          <div className={`bg-gradient-to-br border-2 rounded-2xl p-8 backdrop-blur-sm shadow-2xl transition-all ${
+                            entrepreneur.runway > 12
+                              ? "from-emerald-900/40 via-emerald-800/20 to-gray-900/40 border-emerald-500/50 shadow-emerald-900/30"
+                              : entrepreneur.runway > 6
+                              ? "from-amber-900/40 via-amber-800/20 to-gray-900/40 border-amber-500/50 shadow-amber-900/30"
+                              : "from-rose-900/40 via-rose-800/20 to-gray-900/40 border-rose-500/50 shadow-rose-900/30"
+                          }`}>
+                            <div className="flex items-start justify-between mb-4">
+                              <div className={`w-14 h-14 rounded-xl flex items-center justify-center border ${
+                                entrepreneur.runway > 12 ? "bg-emerald-500/20 border-emerald-500/30" :
+                                entrepreneur.runway > 6 ? "bg-amber-500/20 border-amber-500/30" :
+                                "bg-rose-500/20 border-rose-500/30"
+                              }`}>
+                                <svg className={`w-8 h-8 ${
+                                  entrepreneur.runway > 12 ? "text-emerald-400" :
+                                  entrepreneur.runway > 6 ? "text-amber-400" :
+                                  "text-rose-400"
+                                }`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                </svg>
+                              </div>
+                              <div className={`flex items-center gap-2 px-3 py-1.5 rounded-lg ${
+                                entrepreneur.runway > 12 ? "bg-emerald-500/20" :
+                                entrepreneur.runway > 6 ? "bg-amber-500/20" :
+                                "bg-rose-500/20"
+                              }`}>
+                                <span className={`text-lg font-bold ${
+                                  entrepreneur.runway > 12 ? "text-emerald-400" :
+                                  entrepreneur.runway > 6 ? "text-amber-400" :
+                                  "text-rose-400"
+                                }`}>
+                                  {entrepreneur.runway > 12 ? "✓" : entrepreneur.runway > 6 ? "⚠" : "!"}
+                                </span>
+                              </div>
+                            </div>
+                            <div className="mb-3">
+                              <div className={`text-sm font-bold tracking-wider mb-2 ${
+                                entrepreneur.runway > 12 ? "text-emerald-400" :
+                                entrepreneur.runway > 6 ? "text-amber-400" :
+                                "text-rose-400"
+                              }`}>
+                                CASH RUNWAY
+                              </div>
+                              <div className="text-6xl font-black text-white mb-2">
+                                {entrepreneur.runway}<span className="text-3xl text-gray-400"> mo</span>
+                              </div>
+                            </div>
+                            <div className={`pt-4 border-t ${
+                              entrepreneur.runway > 12 ? "border-emerald-500/20" :
+                              entrepreneur.runway > 6 ? "border-amber-500/20" :
+                              "border-rose-500/20"
+                            }`}>
+                              <div className={`text-xs font-medium mb-2 ${
+                                entrepreneur.runway > 12 ? "text-emerald-300/80" :
+                                entrepreneur.runway > 6 ? "text-amber-300/80" :
+                                "text-rose-300/80"
+                              }`}>
+                                WHY IT MATTERS
+                              </div>
+                              <p className="text-sm text-gray-300 leading-relaxed">
+                                {entrepreneur.runway > 12
+                                  ? "Healthy runway provides stability for strategic execution and growth initiatives."
+                                  : entrepreneur.runway > 6
+                                  ? "Moderate runway requires proactive fundraising planning and burn management."
+                                  : "Critical runway demands immediate fundraising action or cost reduction."}
+                              </p>
+                            </div>
+                          </div>
+
+                          {/* 3. Burnout Index */}
+                          <div className={`bg-gradient-to-br border-2 rounded-2xl p-8 backdrop-blur-sm shadow-2xl transition-all ${
+                            entrepreneur.burnout >= 70
+                              ? "from-rose-900/40 via-rose-800/20 to-gray-900/40 border-rose-500/50 shadow-rose-900/30"
+                              : entrepreneur.burnout >= 60
+                              ? "from-amber-900/40 via-amber-800/20 to-gray-900/40 border-amber-500/50 shadow-amber-900/30"
+                              : "from-emerald-900/40 via-emerald-800/20 to-gray-900/40 border-emerald-500/50 shadow-emerald-900/30"
+                          }`}>
+                            <div className="flex items-start justify-between mb-4">
+                              <div className={`w-14 h-14 rounded-xl flex items-center justify-center border ${
+                                entrepreneur.burnout >= 70 ? "bg-rose-500/20 border-rose-500/30" :
+                                entrepreneur.burnout >= 60 ? "bg-amber-500/20 border-amber-500/30" :
+                                "bg-emerald-500/20 border-emerald-500/30"
+                              }`}>
+                                <svg className={`w-8 h-8 ${
+                                  entrepreneur.burnout >= 70 ? "text-rose-400" :
+                                  entrepreneur.burnout >= 60 ? "text-amber-400" :
+                                  "text-emerald-400"
+                                }`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                                </svg>
+                              </div>
+                              <div className={`flex items-center gap-2 px-3 py-1.5 rounded-lg ${
+                                entrepreneur.burnout >= 70 ? "bg-rose-500/20" :
+                                entrepreneur.burnout >= 60 ? "bg-amber-500/20" :
+                                "bg-emerald-500/20"
+                              }`}>
+                                <span className={`text-lg font-bold ${
+                                  entrepreneur.burnout >= 70 ? "text-rose-400" :
+                                  entrepreneur.burnout >= 60 ? "text-amber-400" :
+                                  "text-emerald-400"
+                                }`}>
+                                  {entrepreneur.burnout >= 70 ? "!" : entrepreneur.burnout >= 60 ? "⚠" : "✓"}
+                                </span>
+                              </div>
+                            </div>
+                            <div className="mb-3">
+                              <div className={`text-sm font-bold tracking-wider mb-2 ${
+                                entrepreneur.burnout >= 70 ? "text-rose-400" :
+                                entrepreneur.burnout >= 60 ? "text-amber-400" :
+                                "text-emerald-400"
+                              }`}>
+                                BURNOUT INDEX
+                              </div>
+                              <div className="text-6xl font-black text-white mb-2">
+                                {entrepreneur.burnout}<span className="text-3xl text-gray-400">/100</span>
+                              </div>
+                            </div>
+                            <div className={`pt-4 border-t ${
+                              entrepreneur.burnout >= 70 ? "border-rose-500/20" :
+                              entrepreneur.burnout >= 60 ? "border-amber-500/20" :
+                              "border-emerald-500/20"
+                            }`}>
+                              <div className={`text-xs font-medium mb-2 ${
+                                entrepreneur.burnout >= 70 ? "text-rose-300/80" :
+                                entrepreneur.burnout >= 60 ? "text-amber-300/80" :
+                                "text-emerald-300/80"
+                              }`}>
+                                WHY IT MATTERS
+                              </div>
+                              <p className="text-sm text-gray-300 leading-relaxed">
+                                {entrepreneur.burnout >= 70
+                                  ? "Critical burnout risk threatens business continuity and founder health. Immediate intervention required."
+                                  : entrepreneur.burnout >= 60
+                                  ? "Elevated stress levels require proactive wellbeing support and workload management."
+                                  : "Healthy wellbeing levels support sustainable performance and long-term success."}
+                              </p>
+                            </div>
+                          </div>
+
+                          {/* 4. Overall Risk Status */}
+                          <div className={`bg-gradient-to-br border-2 rounded-2xl p-8 backdrop-blur-sm shadow-2xl transition-all ${
+                            entrepreneur.risk === "high"
+                              ? "from-rose-900/40 via-rose-800/20 to-gray-900/40 border-rose-500/50 shadow-rose-900/30"
+                              : entrepreneur.risk === "medium"
+                              ? "from-amber-900/40 via-amber-800/20 to-gray-900/40 border-amber-500/50 shadow-amber-900/30"
+                              : "from-emerald-900/40 via-emerald-800/20 to-gray-900/40 border-emerald-500/50 shadow-emerald-900/30"
+                          }`}>
+                            <div className="flex items-start justify-between mb-4">
+                              <div className={`w-14 h-14 rounded-xl flex items-center justify-center border ${
+                                entrepreneur.risk === "high" ? "bg-rose-500/20 border-rose-500/30" :
+                                entrepreneur.risk === "medium" ? "bg-amber-500/20 border-amber-500/30" :
+                                "bg-emerald-500/20 border-emerald-500/30"
+                              }`}>
+                                <svg className={`w-8 h-8 ${
+                                  entrepreneur.risk === "high" ? "text-rose-400" :
+                                  entrepreneur.risk === "medium" ? "text-amber-400" :
+                                  "text-emerald-400"
+                                }`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                </svg>
+                              </div>
+                              <div className={`w-6 h-6 rounded-full flex items-center justify-center ${
+                                entrepreneur.risk === "high" ? "bg-rose-500/30" :
+                                entrepreneur.risk === "medium" ? "bg-amber-500/30" :
+                                "bg-emerald-500/30"
+                              }`}>
+                                <span className={`w-3 h-3 rounded-full ${
+                                  entrepreneur.risk === "high" ? "bg-rose-400 animate-pulse" :
+                                  entrepreneur.risk === "medium" ? "bg-amber-400 animate-pulse" :
+                                  "bg-emerald-400"
+                                }`}></span>
+                              </div>
+                            </div>
+                            <div className="mb-3">
+                              <div className={`text-sm font-bold tracking-wider mb-2 ${
+                                entrepreneur.risk === "high" ? "text-rose-400" :
+                                entrepreneur.risk === "medium" ? "text-amber-400" :
+                                "text-emerald-400"
+                              }`}>
+                                OVERALL STATUS
+                              </div>
+                              <div className={`text-6xl font-black mb-2 ${
+                                entrepreneur.risk === "high" ? "text-rose-400" :
+                                entrepreneur.risk === "medium" ? "text-amber-400" :
+                                "text-emerald-400"
+                              }`}>
+                                {entrepreneur.risk.charAt(0).toUpperCase() + entrepreneur.risk.slice(1)}
+                              </div>
+                            </div>
+                            <div className={`pt-4 border-t ${
+                              entrepreneur.risk === "high" ? "border-rose-500/20" :
+                              entrepreneur.risk === "medium" ? "border-amber-500/20" :
+                              "border-emerald-500/20"
+                            }`}>
+                              <div className={`text-xs font-medium mb-2 ${
+                                entrepreneur.risk === "high" ? "text-rose-300/80" :
+                                entrepreneur.risk === "medium" ? "text-amber-300/80" :
+                                "text-emerald-300/80"
+                              }`}>
+                                WHY IT MATTERS
+                              </div>
+                              <p className="text-sm text-gray-300 leading-relaxed">
+                                {entrepreneur.risk === "high"
+                                  ? "High-risk status requires immediate advisor intervention and support planning."
+                                  : entrepreneur.risk === "medium"
+                                  ? "Medium-risk status warrants close monitoring and proactive support measures."
+                                  : "Low-risk status indicates healthy trajectory and sustainable performance."}
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* SUPPORTING DETAILS - Compact Sections */}
+                      <div className="space-y-4">
+                        <h4 className="text-sm font-semibold text-gray-400 tracking-wide">DETAILED METRICS (Supporting)</h4>
+                        
+                        {/* Business Performance Section - Compact */}
+                        <section className="bg-gradient-to-br from-gray-800/20 to-gray-900/20 border border-gray-700/30 rounded-lg p-4 backdrop-blur-sm">
+                          <div className="flex items-center justify-between mb-3">
+                            <h3 className="text-sm font-bold text-white">Business Performance</h3>
+                            <div className="bg-blue-600/20 border border-blue-500/30 px-2 py-0.5 rounded">
+                              <span className="text-blue-300 text-xs font-semibold">FINANCE</span>
+                            </div>
+                          </div>
+
+                          <div className="grid grid-cols-4 gap-3">
+                            <div className="bg-gray-800/30 border border-gray-700/20 rounded p-2">
+                              <div className="text-xs text-gray-400 mb-1">Revenue trend</div>
+                              <div className="text-lg font-bold text-white">+7.4%</div>
+                            </div>
+                            <div className="bg-gray-800/30 border border-gray-700/20 rounded p-2">
+                              <div className="text-xs text-gray-400 mb-1">Cashflow</div>
+                              <div className="text-lg font-bold text-white">1.6x</div>
+                            </div>
+                            <div className="bg-gray-800/30 border border-gray-700/20 rounded p-2">
+                              <div className="text-xs text-gray-400 mb-1">Pipeline</div>
+                              <div className="text-lg font-bold text-white">$2.1M</div>
+                            </div>
+                            <div className="bg-gray-800/30 border border-gray-700/20 rounded p-2">
+                              <div className="text-xs text-gray-400 mb-1">Cost pressure</div>
+                              <div className="text-lg font-bold text-white">+3.1%</div>
+                            </div>
+                          </div>
                         </section>
+
+                        {/* Workforce & Productivity Section - Compact */}
+                        <section className="bg-gradient-to-br from-gray-800/20 to-gray-900/20 border border-gray-700/30 rounded-lg p-4 backdrop-blur-sm">
+                          <div className="flex items-center justify-between mb-3">
+                            <h3 className="text-sm font-bold text-white">Workforce & Productivity</h3>
+                            <div className="bg-purple-600/20 border border-purple-500/30 px-2 py-0.5 rounded">
+                              <span className="text-purple-300 text-xs font-semibold">OPERATIONS</span>
+                            </div>
+                          </div>
+
+                          <div className="grid grid-cols-4 gap-3">
+                            <div className="bg-gray-800/30 border border-gray-700/20 rounded p-2">
+                              <div className="text-xs text-gray-400 mb-1">Utilisation</div>
+                              <div className="text-lg font-bold text-white">82%</div>
+                            </div>
+                            <div className="bg-gray-800/30 border border-gray-700/20 rounded p-2">
+                              <div className="text-xs text-gray-400 mb-1">Velocity</div>
+                              <div className="text-lg font-bold text-white">+12%</div>
+                            </div>
+                            <div className="bg-gray-800/30 border border-gray-700/20 rounded p-2">
+                              <div className="text-xs text-gray-400 mb-1">Absenteeism</div>
+                              <div className="text-lg font-bold text-white">1.4%</div>
+                            </div>
+                            <div className="bg-gray-800/30 border border-gray-700/20 rounded p-2">
+                              <div className="text-xs text-gray-400 mb-1">Overtime</div>
+                              <div className="text-lg font-bold text-white">29 hrs</div>
+                            </div>
+                          </div>
+                        </section>
+
+                        {/* Wellbeing Sub-metrics - Compact */}
+                        <section className="bg-gradient-to-br from-gray-800/20 to-gray-900/20 border border-gray-700/30 rounded-lg p-4 backdrop-blur-sm">
+                          <div className="flex items-center justify-between mb-3">
+                            <h3 className="text-sm font-bold text-white">Wellbeing Sub-Metrics</h3>
+                            <div className="bg-purple-600/20 border border-purple-500/30 px-2 py-0.5 rounded">
+                              <span className="text-purple-300 text-xs font-semibold">WELLBEING</span>
+                            </div>
+                          </div>
+
+                          <div className="grid grid-cols-4 gap-3">
+                            <div className="bg-gray-800/30 border border-gray-700/20 rounded p-2">
+                              <div className="text-xs text-gray-400 mb-1">Cognitive load</div>
+                              <div className="text-lg font-bold text-white">71/100</div>
+                            </div>
+                            <div className="bg-gray-800/30 border border-gray-700/20 rounded p-2">
+                              <div className="text-xs text-gray-400 mb-1">Engagement</div>
+                              <div className="text-lg font-bold text-white">7.6/10</div>
+                            </div>
+                            <div className="bg-gray-800/30 border border-gray-700/20 rounded p-2">
+                              <div className="text-xs text-gray-400 mb-1">Sleep quality</div>
+                              <div className="text-lg font-bold text-white">6.8/10</div>
+                            </div>
+                            <div className="bg-gray-800/30 border border-gray-700/20 rounded p-2">
+                              <div className="text-xs text-gray-400 mb-1">Work hours</div>
+                              <div className="text-lg font-bold text-white">52 hrs</div>
+                            </div>
+                          </div>
+                        </section>
+                      </div>
+
+                      {/* Quick Insights - Very Compact */}
+                      <div className="bg-gradient-to-br from-indigo-900/15 to-purple-900/15 border border-indigo-700/20 rounded-lg p-3 backdrop-blur-sm">
+                        <div className="flex items-center justify-between mb-2">
+                          <h3 className="text-sm font-bold text-white">AI Quick Insights</h3>
+                          <span className="text-xs text-gray-500">2h ago</span>
+                        </div>
+                        <div className="space-y-1.5">
+                          {entrepreneur.growth > 0 ? (
+                            <div className="flex items-center gap-2 text-xs text-gray-400">
+                              <span className="text-emerald-400">↑</span> Revenue up {entrepreneur.growth}%
+                            </div>
+                          ) : (
+                            <div className="flex items-center gap-2 text-xs text-gray-400">
+                              <span className="text-rose-400">↓</span> Revenue down {Math.abs(entrepreneur.growth)}%
+                            </div>
+                          )}
+                          
+                          {entrepreneur.burnout >= 60 && (
+                            <div className="flex items-center gap-2 text-xs text-gray-400">
+                              <span className="text-amber-400">⚠</span> Burnout elevated at {entrepreneur.burnout}/100
+                            </div>
+                          )}
+                          
+                          {entrepreneur.runway < 8 && (
+                            <div className="flex items-center gap-2 text-xs text-gray-400">
+                              <span className="text-rose-400">!</span> Low runway: {entrepreneur.runway}mo
+                            </div>
+                          )}
+                        </div>
                       </div>
                 </>
               );
