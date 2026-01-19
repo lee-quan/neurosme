@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 
 export default function Home() {
   const [selectedEntrepreneur, setSelectedEntrepreneur] = useState("overview");
@@ -23,9 +24,18 @@ export default function Home() {
       <header className="border-b border-gray-800 px-8 py-5">
         <div className="max-w-[1800px] mx-auto flex items-center justify-between">
           <div className="flex items-center gap-8">
-            <div>
-              <div className="text-2xl font-bold text-white mb-0.5">NeuroSME</div>
-              <div className="text-xs text-gray-400">Real-Time Monitoring Platform</div>
+            <div className="flex items-center gap-3">
+              <Image 
+                src="/logo.png" 
+                alt="NeuroSME Logo" 
+                width={40} 
+                height={40}
+                className="rounded-lg"
+              />
+              <div>
+                <div className="text-2xl font-bold text-white mb-0.5">NeuroSME</div>
+                <div className="text-xs text-gray-400">Real-Time Monitoring Platform</div>
+              </div>
             </div>
             <nav className="flex items-center gap-6 ml-8">
               <button className="text-sm text-indigo-400 font-medium border-b-2 border-indigo-500 pb-1">Dashboard</button>
@@ -80,10 +90,14 @@ export default function Home() {
                 }`}
               >
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-lg flex items-center justify-center">
-                    <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
-                    </svg>
+                  <div className="w-10 h-10 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-lg flex items-center justify-center p-1">
+                    <Image 
+                      src="/logo.png" 
+                      alt="NeuroSME" 
+                      width={32} 
+                      height={32}
+                      className="rounded"
+                    />
                   </div>
                   <div className="flex-1">
                     <div className="text-sm font-semibold text-white">All Entrepreneurs</div>
@@ -836,7 +850,16 @@ export default function Home() {
       <footer className="border-t border-gray-800 px-8 py-4">
         <div className="max-w-[1800px] mx-auto flex items-center justify-between text-xs text-gray-500">
           <div className="flex items-center gap-4">
-            <span>© 2026 NeuroSME Platform</span>
+            <div className="flex items-center gap-2">
+              <Image 
+                src="/logo.png" 
+                alt="NeuroSME Logo" 
+                width={20} 
+                height={20}
+                className="rounded"
+              />
+              <span>© 2026 NeuroSME Platform</span>
+            </div>
             <span>•</span>
             <span className="flex items-center gap-1">
               <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
