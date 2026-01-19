@@ -222,28 +222,28 @@ export default function Home() {
                     </div>
 
                     {/* 3. Wellbeing Risk Reduction */}
-                    <div className="bg-gradient-to-br from-purple-900/40 via-purple-800/20 to-gray-900/40 border-2 border-purple-500/50 rounded-2xl p-8 backdrop-blur-sm shadow-2xl shadow-purple-900/30 hover:shadow-purple-900/50 transition-all">
+                    <div className="bg-gradient-to-br from-rose-900/40 via-rose-800/20 to-gray-900/40 border-2 border-rose-500/50 rounded-2xl p-8 backdrop-blur-sm shadow-2xl shadow-rose-900/30 hover:shadow-rose-900/50 transition-all">
                       <div className="flex items-start justify-between mb-4">
-                        <div className="w-14 h-14 bg-purple-500/20 rounded-xl flex items-center justify-center border border-purple-500/30">
-                          <svg className="w-8 h-8 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <div className="w-14 h-14 bg-rose-500/20 rounded-xl flex items-center justify-center border border-rose-500/30">
+                          <svg className="w-8 h-8 text-rose-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
                           </svg>
                         </div>
-                        <div className="flex items-center gap-2 bg-purple-500/20 px-3 py-1.5 rounded-lg">
-                          <span className="text-purple-400 text-xl font-bold">↓</span>
-                          <span className="text-purple-400 text-sm font-bold">-38%</span>
+                        <div className="flex items-center gap-2 bg-rose-500/20 px-3 py-1.5 rounded-lg">
+                          <span className="text-rose-400 text-xl font-bold">↓</span>
+                          <span className="text-rose-400 text-sm font-bold">-38%</span>
                         </div>
                       </div>
                       <div className="mb-3">
-                        <div className="text-sm font-bold text-purple-400 tracking-wider mb-2">RISK REDUCTION</div>
+                        <div className="text-sm font-bold text-rose-400 tracking-wider mb-2">RISK REDUCTION</div>
                         <div className="text-6xl font-black text-white mb-2">-38<span className="text-3xl text-gray-400">%</span></div>
                       </div>
-                      <div className="pt-4 border-t border-purple-500/20">
-                        <div className="text-xs text-purple-300/80 font-medium mb-2">WHY IT MATTERS</div>
+                      <div className="pt-4 border-t border-rose-500/20">
+                        <div className="text-xs text-rose-300/80 font-medium mb-2">WHY IT MATTERS</div>
                         <p className="text-sm text-gray-300 leading-relaxed">Reduces burnout, turnover, and hidden org risk.</p>
                       </div>
-                      <div className="mt-4 pt-4 border-t border-purple-500/10">
-                        <span className="text-xs text-purple-400/70 font-semibold tracking-wide">BOARD-LEVEL SIGNAL</span>
+                      <div className="mt-4 pt-4 border-t border-rose-500/10">
+                        <span className="text-xs text-rose-400/70 font-semibold tracking-wide">BOARD-LEVEL SIGNAL</span>
                       </div>
                     </div>
                   </div>
