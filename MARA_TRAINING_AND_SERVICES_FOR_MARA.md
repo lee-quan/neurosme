@@ -20,6 +20,13 @@ Based on my analysis of the problem space and MARA's mandate, here are my propos
 
 **Solution:** Intensive 60-day structured program combining:
 - **Week 1-2:** Financial Health Diagnostic - Entrepreneurs connect their actual business data (revenue, expenses, cashflow) to generate a personalized "Business Health Score" with AI-flagged red zones
+  - **Business Health Score Methodology:** An evidence-based index calculated from 5 critical metrics:
+    - Cash Runway (40% weight)
+    - Gross Margin (20% weight)
+    - Debt-to-Equity Ratio (20% weight)
+    - Customer Concentration (10% weight)
+    - Burnout Index (10% weight)
+  - **Red Zone Triggers:** Automatic flags when Cash Runway drops below 3 months OR Debt-to-Equity exceeds 2:1 OR Burnout Index crosses 70/100
 - **Week 3-6:** Targeted skill modules based on their data gaps (e.g., if cashflow is critical → immediate cashflow management training)
 - **Week 7-8:** Live "Simulation Sprints" - Using their real data, entrepreneurs practice decision-making scenarios (e.g., "Your runway drops to 3 months—what do you cut?")
 - **Day 60:** Graduate with a personalized 12-month "Survival Roadmap" with monthly check-in triggers
@@ -71,7 +78,7 @@ Based on my analysis of the problem space and MARA's mandate, here are my propos
 **Why it's compelling:**
 - **Unique Angle:** No existing Malaysian entrepreneurship program focuses on mental health + business outcomes
 - **Evidence:** Studies show 72% of entrepreneurs report mental health concerns affecting business decisions
-- **ESG Alignment:** Supports Malaysia's carbon neutrality goals by preventing burnout-driven inefficiencies
+- **ESG Alignment:** Provides clear *Social (S) governance* by addressing mental health as a key factor in sustainable employment. Furthermore, reducing burnout leads to sharper strategic decision-making, which indirectly supports efficient resource utilization and reduction of waste (a component of the *Environmental (E)* goal). Mental health support also strengthens *Governance (G)* by promoting better business leadership and ethical decision-making under stress.
 - **MARA Fit:** Demonstrates holistic entrepreneur development, not just skills
 
 **Pilot:** Partner with 1-2 universities' counseling departments for initial capacity
@@ -127,9 +134,12 @@ Based on my analysis of the problem space and MARA's mandate, here are my propos
 
 ### **Credibility Boosters:**
 1. **Pilot KPIs Tied to National Goals:**
-   - 25% reduction in 5-year failure rate among participants vs. control
-   - 40% of graduates achieve MyDigital proficiency targets
-   - 30% improvement in ESG awareness/practices
+   - **Business Survival:** 25% reduction in 5-year failure rate among participants vs. control group (tracked via Companies Commission of Malaysia data and participant surveys)
+   - **Digital Transformation:** 40% of graduates achieve MyDigital proficiency, evidenced by *successful integration of at least two AI/Digital tools (e.g., cloud accounting software, AI-powered marketing platforms, e-commerce integration) into their daily operations*, as tracked by NeuroSME platform usage analytics and verified through quarterly check-ins
+   - **ESG Adoption:** 30% improvement in ESG awareness/practices, measured through:
+     - Pre/post program ESG knowledge assessments
+     - Documented implementation of at least one sustainable business practice (e.g., waste reduction, carbon tracking, fair labor policies)
+     - Voluntary ESG reporting participation rate
 
 2. **Research Partnerships:**
    - Collaborate with UKM/UM to publish study on "Live Data Impact on SME Resilience"
@@ -196,6 +206,38 @@ Based on my analysis of the problem space and MARA's mandate, here are my propos
 4. **Tech-Light** - WhatsApp-based = accessible to non-tech entrepreneurs
 5. **Holistic** - Only program combining business + mental health outcomes
 6. **Measurable** - Clear ROI metrics tied to national economic goals
+7. **Data Governance & Trust** - Built-in privacy and security framework (see below)
+
+---
+
+## 🔒 **Data Governance & Trust Framework**
+
+**Addressing MARA's Biggest Concern: How We Handle Sensitive Business Data**
+
+The core of NeuroSME relies on entrepreneurs connecting their actual business data. We've designed a comprehensive security and privacy framework to ensure trust and adoption:
+
+### **Security Measures:**
+- **End-to-End Encryption:** All real business data (revenue, expenses, cashflow) is encrypted in transit and at rest using bank-grade AES-256 encryption
+- **Local Data Storage:** All entrepreneur data is stored on servers physically located in Malaysia, ensuring compliance with Personal Data Protection Act (PDPA) 2010
+- **Access Controls:** Multi-factor authentication and role-based access ensure only authorized users can view sensitive data
+- **Regular Audits:** Quarterly security audits by certified third-party cybersecurity firms
+
+### **Privacy Protections:**
+- **Anonymization for Peer Sharing:** Data shared with peer mentors in the "Data Buddy" program is strictly *anonymized* and aggregated into non-identifiable dashboards (e.g., "Manufacturing SME, RM 2-5M revenue range" instead of company names)
+- **Granular Permissions:** Entrepreneurs retain full ownership and control over their data permissions at all times - they can choose what to share, with whom, and revoke access instantly
+- **No Third-Party Selling:** NeuroSME commits to NEVER selling entrepreneur data to third parties. Data is used solely for program delivery and aggregate anonymized insights for MARA reporting
+
+### **Transparency:**
+- **Clear Data Usage Policy:** Every entrepreneur receives a simple, jargon-free explanation of what data is collected and how it's used before onboarding
+- **Opt-In by Default:** All data sharing features require explicit opt-in consent, not automatic enrollment
+- **Right to be Forgotten:** Entrepreneurs can request complete deletion of their data at any time
+
+### **MARA-Specific Safeguards:**
+- **Aggregate Reporting Only:** MARA receives only anonymized, aggregate insights (e.g., "42% of cohort improved cashflow by 25%") - never individual entrepreneur data without explicit permission
+- **Independent Oversight:** Optional establishment of a Data Ethics Committee with MARA representatives to review data practices
+
+**Why This Matters:**
+This framework removes the primary barrier to adoption - entrepreneurs can trust that their sensitive business information is protected while still benefiting from data-driven insights. For MARA, it demonstrates governance excellence and protects the program from potential privacy scandals.
 
 ---
 
@@ -231,9 +273,3 @@ Based on my analysis of the problem space and MARA's mandate, here are my propos
 - [Cross-Border Entrepreneurship Challenges](https://www.researchgate.net/publication/394136650_CHALLENGES_IN_CROSS_BORDER_ENTREPRENEURSHIP_A_CASE_STUDY_OF_MALAY_SMES_IN_MALAYSIA)
 - [AI Skilling Initiative](https://news.microsoft.com/en-my/2024/12/10/microsoft-launches-initiative-for-ai-skilling-opportunities-for-800000-malaysians-by-2025/)
 - [Malaysia Learning & Development Strategic Transformation](https://disprz.ai/blog/malaysia-ld-strategic-transformation)
-
----
-
-**Document Version:** 1.0  
-**Last Updated:** January 2026  
-**Contact:** NeuroSME Team
